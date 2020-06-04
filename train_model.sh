@@ -3,8 +3,8 @@
 python train.py \
 --trial 1 \
 --model NAOMI \
---task basketball \
---y_dim 10 \
+--task billiard \
+--y_dim 2 \
 --rnn_dim 300 \
 --dec1_dim 200 \
 --dec2_dim 200 \
