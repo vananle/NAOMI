@@ -24,7 +24,7 @@ def run_epoch(train, model, exp_data, clip, optimizer=None, batch_size=64, num_m
         ind = torch.from_numpy(inds[i:i+batch_size]).long()
         i += batch_size
         data = exp_data[ind]
-    
+        print(data.shape)
         if use_gpu:
             data = data.cuda()
 
