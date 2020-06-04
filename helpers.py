@@ -24,7 +24,6 @@ def run_epoch(train, model, exp_data, clip, optimizer=None, batch_size=64, num_m
         ind = torch.from_numpy(inds[i:i+batch_size]).long()
         i += batch_size
         data = exp_data[ind]
-        print(data.shape)
         if use_gpu:
             data = data.cuda()
 
@@ -37,6 +36,7 @@ def run_epoch(train, model, exp_data, clip, optimizer=None, batch_size=64, num_m
             #num_missing = 40
         missing_list = torch.from_numpy(np.random.choice(np.arange(1, data.shape[0]), num_missing, replace=False)).long()
         data[missing_list] = 0.0
+        print('Check: \n' , data[missing_list])
         has_value = Variable(torch.ones(data.shape[0], data.shape[1], 1))
         if use_gpu:
             has_value = has_value.cuda()
